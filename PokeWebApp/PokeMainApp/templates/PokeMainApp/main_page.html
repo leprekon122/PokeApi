@@ -1,0 +1,86 @@
+{%extends 'PokeMainApp/layout.html'%}
+
+
+{%block title %}Main page{%endblock%}
+
+
+{%block content%}
+<div class="container fluid">
+    <form method="post">{%csrf_token%}
+        <button class="btn btn-warning" type="submit" name="add_data" value="add_data">Load data</button>
+    </form>
+    <br>
+    <div class="all_poc">
+        {%for el in model%}
+        <div class="alert alert-dark pokemons">
+            <div class="poc_name">
+                <h5>{{el.name}}</h5>
+            </div>
+            <form method="post">{%csrf_token%}
+                <button class="btn btn-success" type="submit" name="add_pokemon" value="{{el.id}}"
+                        onclick="return add_poc()">Add
+                </button>
+            </form>
+        </div>
+        {%endfor%}
+    </div>
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="login">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body bg-dark">
+                    <form method="get">
+                        <input name="username" class="form-control" type="text">
+                        <br>
+                        <input name="password" class="form-control" type="password">
+                        <br>
+
+                        <div class="reg_btn">
+                            <button class="btn btn-success" type="submit" name="logins" value="logins">Login</button>
+                            <br>
+                            <a class="text-light" href="{%url 'reg' %}">Registration</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="my_poc">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title">List of my pocemon's</h5>
+                    <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body list_of_poc bg-dark">
+                    {%for els in user_poc%}
+                    <div class="alert alert-success">
+                        <span>{{els.pokemon_name__name}}</span>
+                        <form method="post">{%csrf_token%}
+                            <button aria-label="Close" class="btn btn-danger" type="submit" name="del_poc"
+                                    value="{{els.id}}">X
+                            </button>
+                        </form>
+                    </div>
+
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}

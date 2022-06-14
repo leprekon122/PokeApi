@@ -1,0 +1,73 @@
+body {background-color:#0f0f0f}
+
+.all_poc{display:flex;
+         flex-wrap: wrap;
+         flex-direction:row;
+         width:100%;
+         height:80vh;
+         overflow: auto;
+         border-right: 3px solid #fff;
+         }
+
+.pokemons {width:25%;
+           }
+.pokemons button {width:100%}
+.poc_name {display:flex;
+           width:100%;
+           justify-content:center;
+           font-size:24px
+           }
+
+.reg_btn {display:flex;
+          flex-direction: column;
+          align-items: center}
+.reg_btn button{width:100%}
+
+.reg_btn a{text-decoration:none}
+
+
+
+.reg_form {width:50%;
+          background-color: #363232;
+          color:#fff}
+
+
+.main_reg_form {width:100%;
+               height:70vh;
+               display:flex;
+               justify-content:center;
+               align-items:center;
+              }
+
+.username {display:flex;
+          justify-content:center;
+          align-items:center;
+          }
+
+.username h5{font-size: 14px;
+            }
+
+.logout{display:none}
+
+.side_panel {width:30%;
+             height:100vh;
+             z-index:2;
+             background-color: red;
+             }
+.list_of_poc {height:50vh;
+              display:flex;
+              flex-direction: column;
+              align-items: center;
+              overflow: auto;
+              }
+
+.list_of_poc .alert-success{width:70%}
+
+.alert-success {display:flex;
+                justify-content: space-between;
+                align-items:center;
+                font-size: 18px;
+                font-family: cursive;
+                color: black}
+
+.navbar-brand {padding-left:1%;}
